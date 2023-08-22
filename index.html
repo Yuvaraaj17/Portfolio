@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f232789b85.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Skills</a></li>
+                    <li><a href="#portfolio">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Computer Science Engineer</p>
+                <h1>Hi I am <span class="typo"></span></h1>
+            </div>
+        </div>
+    </div>
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <!--  <img src="user.png"> -->
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>A diligent engineering graduate ready to embark my journey inthe field of technology. 
+                        <br>I am actively seeking an ingenious jobto showcase expertise in my fields of interest.
+                        <br>I am also readyto adept and be resilient in the environment I am present.
+                    </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class="tab-links" onclick="opentab('courses')">Courses</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Programming Languages</span><br>Python, Java, C, Dart</li>
+                            <li><span>Frontend Development</span><br>HTML & Tailwind CSS</li>                            
+                            <li><span>UI/UX with Designing</span><br>Figma</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>Schooling - ( 2013-2020 )</span><br>Sainik School Amaravathinagar</li>
+                            <li><span>Graduation- ( 2020 - 2024 )</span><br>Anna University Regional Campus Coimbatore</li>
+                            
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="courses">
+                        <ul>
+                            <li><span>Flutter App Development</span><br>UDEMY</li>
+                            <li><span>UI/UX Designing using FIGMA</span><br>UDEMY</li>
+                            <li><span>Big Data</span><br>NAAN MUDHALVAN SCHEME</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- services --> 
+    <div id="projects">
+        <div class="container">
+            <h1 class="sub-title">Fields of Interest</h1>
+            <div class="services-list">
+                <div>
+                    <img src="icons/iot-icon.png" alt="">
+                    <h2>Hot Technologies</h2>
+                    <p>
+                        Technologies like IoT and Blockchain have grown in interest and have 
+                        potential for transformation and innovation that they bring to various industries and aspects of life.
+                    </p>
+                    <!-- <a href="#">See more..</a> -->
+                </div>
+                <div>
+                    <img src="icons/ai-icon-new.png" alt="">
+                    <h2>App Development</h2>
+                    <p>
+                        Flutter is open-source UI based software created by Google.
+                        With flutter we can develop apps for multiple platfors with single code base.
+                    </p>
+                    <!-- <a href="#">See more..</a> -->
+                </div>
+                <div>
+                    <img src="icons/nft-icon-new.png" alt="">
+                    <h2>Designing</h2>
+                    <p>
+                        During my liesure hours I explore my creativity by producing easy to use UI interfaces
+                        and attractive logos. I am also part of my college's D-GATE Cell
+                    </p>
+                    <!-- <a href="#">See more..</a> -->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- ----- project ----       -->
+
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">Projects</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="images/project1.png">
+                    <div class="layer">
+                        <h3>Smart Door Alert System</h3>
+                        <p>This project works by alerting the user whenever the door is opened/closed through telegram messages.</p>
+                        <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/project2.jpg">
+                    <div class="layer">
+                        <h3>AI Enhanced Placement Module</h3>
+                        <p>This project was prepared in order to help our college students for their placement preparation.</p>
+                        <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/project3.jpg">
+                    <div class="layer">
+                        <h3>NFT Marketplace</h3>
+                        <p>This project is basically a NFT marketplace where an user can buy, sell, mint and also create NFT using AI.</p>
+                        <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn">See more</a>
+        </div>
+    </div>
+    <!-- ---------- contact -----------  -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>yuvaraaj5910@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i>9345343358</p>
+                    <div class="social-icons">
+                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <!-- <a href="https://instagram.com/codescracker" target="_blank"><i class="fa-brands fa-instagram"></i></a> -->
+                        <a href="https://twitter.com/Codescracker1" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://github.com/Yuvaraaj17" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://linkedin.com/in/yuvaraaj-s-30642b21b" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <a href="Resume.pdf" download class="btn btn2">Download CV</a>
+                </div>
+                <div class="contact-right">
+                    <form action="" name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg">
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p><i class="fa-solid fa-star"></i>Made by @codescracker<i class="fa-solid fa-star"></i></p>
+        </div>
+    </div>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+  <!-- Setup and start animation! -->
+  <script>
+    var typed = new Typed('.typo', {
+      strings: ['Yuvaraaj', 'Yuvaraaj'],
+      typeSpeed: 100,
+      backSpeed: 100,
+      loop: true,
+    });
+  </script>
+    <script>
+        var tablinks=document.getElementsByClassName("tab-links");
+        var tabcontents=document.getElementsByClassName("tab-contents");
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link"); 
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+        var sidemeu = document.getElementById("sidemenu");
+
+        function openmenu(){
+            sidemeu.style.right = "0";
+            console.log("f1");
+
+        }
+
+        function closemenu(){
+            sidemeu.style.right = "-200px";
+            console.log("f2");
+
+        }
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxoeaV5mVii1idbCenuEGveTTv__oTVP06rMBJVl1NZMQy6wpVfbHcJqbpmvCwsevhD1w/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msd=document.getElementById("msg")
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            msg.innerHTML="Message Sent Successfully"
+            setTimeout(function(){
+                msg.innerHTML=""
+            },3000)
+            form.reset()
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
