@@ -187,9 +187,9 @@ nav ul li a:hover::after{
 }
 
 .services-list div a{
-    text-decoration: none;
+    text-decoration: underline;
     color: #fff;
-    font-size: 12px;
+    font-size: 18px;
     margin-top: 20px;
     display: inline-block;
 }
