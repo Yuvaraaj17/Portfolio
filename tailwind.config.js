@@ -7,10 +7,38 @@ module.exports = {
     
     extend: {
       fontFamily: {
-        mono : ['Space Mono', 'monospace']
+        mono : ['Space Mono', 'monospace'],
+        ubuntu_mono : ['Ubuntu Mono','monospace']
+      },
+      
+      translate:{
+        'z-100': '500px',
+        'z--100': '-100px'
       }
     },
+    keyframes: {
+      typing: {
+        "0%": {
+          width: "0%",
+          visibility: "hidden"
+        },
+        "100%": {
+          width: "100%"
+        }  
+      },
+      blink: {
+        "50%": {
+          borderColor: "transparent"
+        },
+        "100%": {
+          borderColor: "white"
+        }  
+      }
+    },
+    animation: {
+      typing: "typing 3s steps(50) infinite alternate, blink .7s infinite"
+    }
   },
-  plugins: [],
+  plugins: [require("@xpd/tailwind-3dtransforms")],
 }
 
