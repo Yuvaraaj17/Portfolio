@@ -8,7 +8,8 @@ module.exports = {
     extend: {
       fontFamily: {
         mono : ['Space Mono', 'monospace'],
-        ubuntu_mono : ['Ubuntu Mono','monospace']
+        ubuntu_mono : ['Ubuntu Mono','monospace'],
+        poppins: ['Poppins', 'sans']
       },
       
       translate:{
