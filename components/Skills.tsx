@@ -11,7 +11,7 @@ interface skill {
   icon(size: number | null): React.ReactNode;
 }
 
-export const Skills = () => {
+const Skills = () => {
   const mySkills: skill[] = [
     {
       name: "Next js",
@@ -256,8 +256,10 @@ export const Skills = () => {
   };
 
   return (
-    <div className="w-full min-h-[400px] flex items-center px-4 py-6 bg-zinc-950">
-      <div className="h-max w-full flex flex-col gap-3">
+    <div className="flex flex-col gap-3">
+      <h1 className="text-white font-poppins font-semibold text-4xl px-10">My Areas of Expertise</h1>
+      <div className="w-full min-h-[300px] flex items-center px-4 bg-zinc-950">
+      <div className="h-max w-full flex flex-col gap-3 py-5">
         <div
           className={`flex justify-between px-10 ${
             style ? "gap-x-9 gap-y-4" : "gap-x-20 gap-y-10"
@@ -304,5 +306,9 @@ export const Skills = () => {
         )}
       </div>
     </div>
+    </div>
+    
   );
 };
+
+export default Skills;

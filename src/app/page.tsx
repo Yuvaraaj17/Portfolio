@@ -3,14 +3,14 @@ import NavBar from "../../components/NavBar";
 import About from "../../components/About";
 import Projects from "../../components/Projects";
 import ContactForm from "../../components/ContactForm";
-import { Skills } from "../../components/Skills";
+import Skills from "../../components/Skills";
+import Intro from "../../components/Intro";
 export default function Page() {
   return (
-    <div className="bg-black flex flex-col w-full h-full border border-black gap-3">
+    <div className="bg-black flex flex-col w-full h-full border border-black gap-10">
       <NavBar />
+      <Intro />
       <About />
-      <h1>Hello, Next.js!</h1>
-      <h1 className="text-white font-poppins font-semibold text-4xl px-10">My Areas of Expertise</h1>
       <Skills />
       <Projects />
       <ContactForm />
