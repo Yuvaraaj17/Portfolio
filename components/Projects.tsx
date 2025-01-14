@@ -41,13 +41,9 @@ const Projects = () => {
     emptyLeft.current.className = temp
   }
 
-  useEffect(()=>{
-    console.log(cardNum)
-  },[cardNum])
-
   return (
-    <div className='bg-gray-500 w-full h-full flex items-center py-7' >
-        <div ref={parentRef} className='flex justify-center w-full bg-green-300 h-[450px] items-center relative'>
+    <div className='w-full h-full flex items-center py-7' >
+        <div ref={parentRef} className='flex justify-center w-full bg-zinc-950 h-[450px] items-center relative'>
             <div ref={leftRef} className={'w-72 h-44 flex items-center justify-center bg-red-600 absolute transition-all duration-[400ms] ease-out -translate-x-[400px] scale-[0.73] blur-[2px]'}>Background div left</div>
             <div ref={mainRef} className={`w-72 h-44 flex items-center justify-center bg-red-600 absolute transition-all duration-[400ms] ease-out scale-[1.6] shadow-md translate-z-96`}>Main</div>
             <div ref={rightRef} className={`w-72 h-44 flex items-center justify-center bg-red-600 absolute transition-all duration-[400ms] ease-out translate-x-[400px] scale-[0.73] blur-[2px] -translate-z-96`}>Background div right</div>

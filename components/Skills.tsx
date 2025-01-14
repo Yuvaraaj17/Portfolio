@@ -248,7 +248,7 @@ export const Skills = () => {
     },
   ];
 
-  const [style, setStyle] = useState(true);
+  const [style, setStyle] = useState(false);
   const [activeElement, setActiveElement] = useState<skill>(mySkills[0]);
   const handleClick = (element) => {
     setActiveElement(element);
@@ -277,7 +277,7 @@ export const Skills = () => {
             : mySkills.map((element, key) => (
                 <div
                   key={key}
-                  className="hover:cursor-pointer"
+                  className="rounded-md hover:bg-zinc-900 transition-all hover:scale-105 duration-300 ease-in-out hover:shadow-md p-2 hover:cursor-pointer"
                   onClick={() => handleClick(element)}
                 >
                   {element.icon(75)}

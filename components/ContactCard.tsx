@@ -24,6 +24,7 @@ export const ContactCard = () => {
         >
           <SiGmail size={30} color="white" />
         </a>
+        <a href="/Resume.pdf" download="Resume.pdf" className="col-span-3 bg-inherit text-pink-500 border border-pink-500 rounded-[3px] -shadow-md text-center text-xl font-poppins font-medium py-3 w-full hover:bg-pink-500 hover:text-white transition-all duration-300 ease-in-out">Download My CV</a>
       </div>
     </div>
   );
