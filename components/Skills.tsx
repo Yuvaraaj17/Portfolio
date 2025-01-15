@@ -15,17 +15,20 @@ const Skills = () => {
   const mySkills: skill[] = [
     {
       name: "Next js",
-      description: "Proficient in building fast, SEO-optimized web applications using Next.js with SSR, SSG, and ISR. Experienced in API routes, and deploying scalable apps on Vercel.",
+      description:
+        "Proficient in building fast, SEO-optimized web applications using Next.js with SSR, SSG, and ISR. Experienced in API routes, and deploying scalable apps on Vercel.",
       icon: (size) => <RiNextjsFill size={size} color="white" />,
     },
     {
       name: "Tailwind css",
-      description: "Skilled in creating responsive, modern interfaces using Tailwind CSS with utility-first design. Experienced in theme customization and seamless integration with frameworks like Next.js.",
+      description:
+        "Skilled in creating responsive, modern interfaces using Tailwind CSS with utility-first design. Experienced in theme customization and seamless integration with frameworks like Next.js.",
       icon: (size) => <RiTailwindCssFill size={size} color="#3490dc" />,
     },
     {
       name: "C++",
-      description: "Versatile in developing high-performance applications with C++, specializing in object-oriented programming, STL, and multi-threading. Adept at building scalable systems and optimizing code for efficiency.",
+      description:
+        "Versatile in developing high-performance applications with C++, specializing in object-oriented programming, STL, and multi-threading. Adept at building scalable systems and optimizing code for efficiency.",
       icon: (size) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +79,8 @@ const Skills = () => {
     },
     {
       name: "C",
-      description: "Adept in C programming, with a focus on developing efficient algorithms and managing memory and also debugging C code for various applications.",
+      description:
+        "Adept in C programming, with a focus on developing efficient algorithms and managing memory and also debugging C code for various applications.",
       icon: (size) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +130,8 @@ const Skills = () => {
     },
     {
       name: "Python",
-      description: "Well-versed in Python for building efficient applications, focusing on data processing, automation, and web development. Skilled in integrating libraries and frameworks for scalable solutions.",
+      description:
+        "Well-versed in Python for building efficient applications, focusing on data processing, automation, and web development. Skilled in integrating libraries and frameworks for scalable solutions.",
       icon: (size) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -149,12 +154,14 @@ const Skills = () => {
     },
     {
       name: "Linux",
-      description: "Expert in Linux, with a focus on managing environments like Rocky Linux in WSL.",
+      description:
+        "Expert in Linux, with a focus on managing environments like Rocky Linux in WSL.",
       icon: (size) => <FcLinux size={size} />,
     },
     {
       name: "AWS",
-      description: "Knowledgeable in leveraging AWS services like EC2, S3, and Lambda for building scalable cloud applications. Experienced in managing infrastructure with AWS tools and ensuring cost-effective solutions.",
+      description:
+        "Knowledgeable in leveraging AWS services like EC2, S3, and Lambda for building scalable cloud applications. Experienced in managing infrastructure with AWS tools and ensuring cost-effective solutions.",
       icon: (size) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +184,8 @@ const Skills = () => {
     },
     {
       name: "Figma",
-      description: "Strong understanding of design tools, including Figma, for creating user interfaces and collaborating on design projects. Expertise in prototyping, wireframing, and designing with a user-centered approach.",
+      description:
+        "Strong understanding of design tools, including Figma, for creating user interfaces and collaborating on design projects. Expertise in prototyping, wireframing, and designing with a user-centered approach.",
       icon: (size) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -209,7 +217,8 @@ const Skills = () => {
     },
     {
       name: "Javascript",
-      description: "Capable in JavaScript, with expertise in writing efficient code and building interactive applications. Skilled in utilizing frameworks and libraries to develop dynamic web applications.",
+      description:
+        "Capable in JavaScript, with expertise in writing efficient code and building interactive applications. Skilled in utilizing frameworks and libraries to develop dynamic web applications.",
       icon: (size) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -256,58 +265,59 @@ const Skills = () => {
   };
 
   return (
-    <div className="flex flex-col gap-3">
-      <h1 className="text-white font-poppins font-semibold text-4xl px-10">My Areas of Expertise</h1>
+    <div className="flex flex-col gap-3 bg-zinc-950">
+      <h1 className="text-white font-poppins font-semibold text-4xl px-10 pt-5">
+        My Areas of Expertise
+      </h1>
       <div className="w-full min-h-[300px] flex items-center px-4 bg-zinc-950">
-      <div className="h-max w-full flex flex-col gap-3 py-5">
-        <div
-          className={`flex justify-between px-10 ${
-            style ? "gap-x-9 gap-y-4" : "gap-x-20 gap-y-10"
-          }  flex-wrap relative`}
-        >
-          {style
-            ? mySkills.map((element, key) => (
-                <div
-                  key={key}
-                  onClick={() => handleClick(element)}
-                  className="border hover:cursor-pointer hover:scale-95 border-black shadow-md gap-3 flex flex-row min-w-24 w-fit h-fit py-1 text-slate-400 font-poppins bg-zinc-800 rounded-[3px] items-center justify-between px-3"
-                >
-                  <div>{element.name}</div>
-                  <div>{element.icon(20)}</div>
-                </div>
-              ))
-            : mySkills.map((element, key) => (
-                <div
-                  key={key}
-                  className="rounded-md hover:bg-zinc-900 transition-all hover:scale-105 duration-300 ease-in-out hover:shadow-md p-2 hover:cursor-pointer"
-                  onClick={() => handleClick(element)}
-                >
-                  {element.icon(75)}
-                </div>
-              ))}
+        <div className="h-max w-full flex flex-col gap-3 py-5">
+          <div
+            className={`flex justify-between px-10 ${
+              style ? "gap-x-9 gap-y-4" : "gap-x-20 gap-y-10"
+            }  flex-wrap relative`}
+          >
+            {style
+              ? mySkills.map((element, key) => (
+                  <div
+                    key={key}
+                    onClick={() => handleClick(element)}
+                    className="border hover:cursor-pointer hover:scale-95 border-black shadow-md gap-3 flex flex-row min-w-24 w-fit h-fit py-1 text-slate-400 font-poppins bg-zinc-800 rounded-[3px] items-center justify-between px-3"
+                  >
+                    <div>{element.name}</div>
+                    <div>{element.icon(20)}</div>
+                  </div>
+                ))
+              : mySkills.map((element, key) => (
+                  <div
+                    key={key}
+                    className="rounded-md hover:bg-zinc-900 transition-all hover:scale-105 duration-300 ease-in-out hover:shadow-md p-2 hover:cursor-pointer"
+                    onClick={() => handleClick(element)}
+                  >
+                    {element.icon(75)}
+                  </div>
+                ))}
+            {style && (
+              <IoIosCloseCircle
+                color="white"
+                className="hover:cursor-pointer absolute right-0"
+                size={30}
+                onClick={() => setStyle(false)}
+              />
+            )}
+          </div>
           {style && (
-            <IoIosCloseCircle
-              color="white"
-              className="hover:cursor-pointer absolute right-0"
-              size={30}
-              onClick={() => setStyle(false)}
-            />
+            <div className="flex flex-row w-full h-[330px]">
+              <div className="w-1/2 border-r-2 border-b border-t border-white flex items-center justify-center">
+                {activeElement.icon(75)}
+              </div>
+              <div className="font-poppins px-8 font-normal tracking-widest text-[15px] w-1/2 border-t border-l-2 border-b border-white text-white flex items-center justify-center">
+                {activeElement.description}
+              </div>
+            </div>
           )}
         </div>
-        {style && (
-          <div className="flex flex-row w-full h-[330px]">
-            <div className="w-1/2 border-r-2 border-b border-t border-white flex items-center justify-center">
-              {activeElement.icon(75)}
-            </div>
-            <div className="font-poppins px-8 font-normal tracking-widest text-[15px] w-1/2 border-t border-l-2 border-b border-white text-white flex items-center justify-center">
-              {activeElement.description}
-            </div>
-          </div>
-        )}
       </div>
     </div>
-    </div>
-    
   );
 };
 

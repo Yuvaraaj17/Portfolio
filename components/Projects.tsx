@@ -39,8 +39,8 @@ const Projects = () => {
   };
 
   return (
-    <div className="flex flex-col gap-3">
-      <h1 className="text-white font-poppins font-semibold text-4xl px-10 pt-16">
+    <div className="flex flex-col gap-3 bg-zinc-950">
+      <h1 className="text-white font-poppins font-semibold text-4xl px-10 pt-6">
         My Work
       </h1>
       <div className="w-full h-full flex items-center">

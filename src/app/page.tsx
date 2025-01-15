@@ -7,7 +7,7 @@ import Skills from "../../components/Skills";
 import Intro from "../../components/Intro";
 export default function Page() {
   return (
-    <div className="bg-black flex flex-col w-full h-full border border-black gap-10">
+    <div className="bg-black flex flex-col w-full h-full border border-black gap-28">
       <NavBar />
       <Intro />
       <About />

@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require('tailwindcss/plugin');
+const plugin = require("tailwindcss/plugin");
 module.exports = {
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -20,26 +20,27 @@ module.exports = {
       },
     },
     keyframes: {
-      typing: {
+      slideIn: {
         "0%": {
-          width: "0%",
-          visibility: "hidden",
+          transform: "translateY(5%)",
+          opacity: 0,
         },
         "100%": {
-          width: "100%",
+          transform: "translateY(0%)",
+          opacity: 100,
         },
       },
-      blink: {
-        "50%": {
-          borderColor: "transparent",
-        },
-        "100%": {
-          borderColor: "white",
-        },
+      fadeInOut: {
+        "0%": { opacity: "0", transform: "translateY(5%)" },
+        "10%": { opacity: "1", transform: "translateY(0%)" },
+        "30%": { opacity: "1" },
+        "40%": { opacity: "0" },
+        "100%": { opacity: "0" },
       },
     },
     animation: {
-      typing: "typing 3s steps(50) infinite alternate, blink .7s infinite",
+      "slide-in": "slideIn 2s ease-in-out forwards",
+      "fade-in-out": "fadeInOut 8s ease-in-out infinite",
     },
   },
   plugins: [
