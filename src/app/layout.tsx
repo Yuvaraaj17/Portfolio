@@ -11,7 +11,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head><link rel="icon" href="/favicon.ico" /><title>Portfolio</title></head>
+      <body className="w-screen h-screen">{children}</body>
     </html>
   )
 }
