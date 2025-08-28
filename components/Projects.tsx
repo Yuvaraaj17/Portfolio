@@ -7,7 +7,6 @@ import { IoIosArrowForward } from "react-icons/io";
 
 const Projects = () => {
 
-  var index = 1
 
   const projectDetails = [
     {
