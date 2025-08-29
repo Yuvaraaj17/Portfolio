@@ -2,6 +2,8 @@
 import React from 'react'
 import { IoMdClose } from "react-icons/io";
 import sections from "../src/assets/data/sections.json";
+import { IoMenu } from "react-icons/io5";
+import { LuSunMoon } from "react-icons/lu";
 
 export default function NavBar(props : {isMenuBarOpen: boolean, toggleMenuBar: () => void }) {
 
@@ -15,11 +17,14 @@ export default function NavBar(props : {isMenuBarOpen: boolean, toggleMenuBar: (
   }
 
   return (
-    <div className='flex flex-row justify-between bg-red-300 p-3'>
+    <div className='flex flex-row justify-between p-3 gap-3 lg:gap-6 lg:border-b border-violet-300 '>
       <div className='bg-blue-400 w-10 h-10 flex items-center justify-center'>L</div>
-      <div className='flex flex-row gap-4'>
-        <div className='bg-blue-400 w-10 h-10 flex items-center justify-center'>L1</div>
-        <button className='bg-blue-400 w-10 h-10 flex items-center justify-center lg:hidden' onClick={handleClick}>L2</button>
+      <div className='hidden lg:flex flex-row gap-32 bg-black items-center justify-end w-full text-2xl font-mono pr-5'>
+        {sections.map((section: sectionType, key) => <div key={key}>{section.title}</div>)}
+      </div>
+      <div className='flex flex-row gap-4 items-center lg:pr-5'>
+        <LuSunMoon className='text-xl lg:text-3xl'/>
+        <IoMenu className='lg:hidden' size={30} onClick={handleClick} />
       </div>
       {props.isMenuBarOpen && (
         <div className='h-full bg-white text-black absolute lg:hidden right-0 w-52 md:w-2/5 p-3 gap-3 flex flex-col'>
