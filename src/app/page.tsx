@@ -1,13 +1,13 @@
 'use client'
 import React, { useContext } from "react";
 import NavBar from "../../components/NavBar";
-import { useState, createContext } from "react";
+import { useState} from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
 export default function Page() {
 
   const [isOpen, setIsOpen] = useState(false);
-  const { theme , setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   const toggleMenuBar = () => {
     console.log('clicked parent')
