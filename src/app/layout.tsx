@@ -1,3 +1,4 @@
+import { Provider } from "../../context/ThemeContext"
 import "../global.css"
 export const metadata = {
   title: 'Next.js',
@@ -12,7 +13,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head><link rel="icon" href="/favicon.ico" /><title>Portfolio</title></head>
-      <body className="w-screen h-screen">{children}</body>
+      <Provider>
+        <body className="w-screen h-screen">{children}</body>
+      </Provider>
     </html>
   )
 }
