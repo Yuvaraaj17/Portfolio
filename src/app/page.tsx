@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import NavBar from "../../components/NavBar";
 import { useState} from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import Intro from "../../components/Intro";
 
 export default function Page() {
 
@@ -15,14 +16,15 @@ export default function Page() {
   }
 
   return (
-      <div className={`${theme === 'dark' ? 'bg-black' : 'bg-white'} text-white h-full w-full flex flex-col`}>
+      <div className={`${theme === 'dark' ? 'bg-black' : 'bg-[#f1e8d5]'} text-white h-full w-full flex flex-col`}>
         <NavBar isMenuBarOpen={isOpen} toggleMenuBar={toggleMenuBar} />
+        <Intro />
         <div>Hello world</div>
       </div>
     
     // <div className="bg-red-400 flex flex-col border border-black gap-28">
       // {/* 
-      // <Intro />
+      // 
       // <About />
       // <Skills />
       // <Projects />
