@@ -1,9 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Image from "next/image";
+import { ThemeContext } from "../context/ThemeContext";
 
 const About = () => {
   const [activeButton, setActiveButton] = useState<string>("Education");
+  const { theme } = useContext(ThemeContext)
 
   const handleActiveButton = (event) => {
     const { name } = event.target;
@@ -11,8 +13,8 @@ const About = () => {
   };
 
   return (
-    <div className="bg-zinc-950  flex flex-col items-center justify-center gap-7">
-      <h1 className="flex justify-center md:justify-start text-white font-poppins font-semibold text-4xl lg:text-6xl px-5 md:w-full">About Me</h1>
+    <div className={` ${theme === 'dark' ? 'bg-zinc-950' : 'bg-[#f5e7d9]'} bg-zinc-950  flex flex-col items-center justify-center gap-7`}>
+      <h1 className={` ${theme === 'dark' ? 'text-white' : 'text-amber-950'} flex justify-center md:justify-start  font-poppins font-semibold text-4xl lg:text-6xl px-5 md:w-full`}>About Me</h1>
       <div className="flex  flex-col md:flex-row gap-5 md:w-full">
         <div className="flex md:w-1/2 justify-center items-center">
 
@@ -37,7 +39,7 @@ const About = () => {
               Hobbies
             </button>
           </div>
-          <div className="flex flex-col h-[400px] w-full">
+          <div className={` ${theme === 'dark' ? 'text-white' : 'text-amber-900'} flex flex-col h-[400px] w-full`}>
             {activeButton === "Education" && (
               <div className="flex flex-col gap-6 md:gap-4 lg:flex-row w-full lg:items-end">
                 <div className="flex flex-col items-center justify-center w-full  gap-4">
