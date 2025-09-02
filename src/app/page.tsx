@@ -5,6 +5,8 @@ import { useState} from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import Intro from "../../components/Intro";
 import About from "../../components/About";
+import Skills from "../../components/Skills";
+import Projects from "../../components/Projects";
 
 export default function Page() {
 
@@ -21,6 +23,8 @@ export default function Page() {
         <NavBar isMenuBarOpen={isOpen} toggleMenuBar={toggleMenuBar} />
         <Intro />
         <About />
+        {/* <Skills /> Not needed */}
+        <Projects />
       </div>
     
     // <div className="bg-red-400 flex flex-col border border-black gap-28">
@@ -28,7 +32,7 @@ export default function Page() {
       // 
 
       // <Skills />
-      // <Projects />
+      // 
       // <ContactForm /> */}
       // {/* <h1 className="h-[400px] bg-black text-white">Footer content</h1> */}
     // </div>
