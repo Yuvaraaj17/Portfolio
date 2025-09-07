@@ -5,7 +5,6 @@ import { useState} from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import Intro from "../../components/Intro";
 import About from "../../components/About";
-import Skills from "../../components/Skills";
 import Projects from "../../components/Projects";
 
 export default function Page() {

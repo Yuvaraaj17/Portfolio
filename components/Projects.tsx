@@ -4,7 +4,6 @@ import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { IoIosArrowBack, IoIosArrowRoundForward } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
-import { TbExternalLink } from "react-icons/tb";
 
 const Projects = () => {
 
