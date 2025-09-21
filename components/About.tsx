@@ -13,7 +13,7 @@ const About = () => {
   };
 
   return (
-    <div className={` ${theme === 'dark' ? 'bg-zinc-950' : 'bg-[#f5e7d9]'} flex flex-col items-center justify-center gap-7`}>
+    <div className={` ${theme === 'dark' ? 'bg-zinc-950' : 'bg-[#e0d1c3]'} flex flex-col items-center justify-center gap-7 py-7`}>
       <h1 className={` ${theme === 'dark' ? 'text-white' : 'text-amber-950'} flex justify-center md:justify-start  font-poppins font-semibold text-4xl lg:text-6xl px-5 md:w-full`}>About Me</h1>
       <div className="flex  flex-col md:flex-row gap-5 md:w-full">
         <div className="flex md:w-1/2 justify-center items-center">
