@@ -1,18 +1,17 @@
 [
         {
             "name": "About",
-            "title": "About"
-        },
-        {
-            "name": "Skills",
-            "title": "Skills"
+            "title": "About",
+            "target": "about"
         },
         {
             "name": "Projects",
-            "title": "Projects"
+            "title": "Projects",
+            "target": "projects"
         },
         {
             "name": "Contact",
-            "title": "Contact"
+            "title": "Contact",
+            "target": "contact"
         }
 ]

@@ -55,7 +55,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className={`flex flex-row w-full h-max px-4 ${theme === 'dark' ? 'bg-zinc-950' : 'bg-[#e0d1c3]'} py-10`}>
+    <div id="contact" className={`flex flex-row w-full h-max px-4 ${theme === 'dark' ? 'bg-zinc-950' : 'bg-[#e0d1c3]'} py-10`}>
       <div className=" lg:w-1/2 w-full h-fit items-center justify-center flex">
         <form className="flex w-full items-center justify-center flex-col gap-10">
           <h1 className={` ${theme === 'dark' ? 'text-white' : 'text-amber-950'} flex justify-center  font-poppins font-semibold text-3xl lg:text-5xl w-full max-w-[800px]`}>Contact ME.</h1>

@@ -5,12 +5,14 @@ import sections from "../src/assets/data/sections.json";
 import { IoMenu } from "react-icons/io5";
 import { LuSunMoon } from "react-icons/lu";
 import { ThemeContext } from '../context/ThemeContext';
+import Link from 'next/link';
 
 export default function NavBar(props : {isMenuBarOpen: boolean, toggleMenuBar: () => void }) {
 
   type sectionType = {
     name: string,
-    title: string
+    title: string,
+    target: string
   }
 
   const handleClick = () => {
@@ -20,10 +22,9 @@ export default function NavBar(props : {isMenuBarOpen: boolean, toggleMenuBar: (
   const { theme , setTheme } = useContext(ThemeContext);
 
   return (
-    <div className='flex flex-row justify-between p-3 gap-3 lg:gap-6 border-b-2 border-amber-600'>
-      <div className='bg-blue-400 w-10 h-10 flex items-center justify-center'>L {theme}</div>
+    <div className={`flex flex-row justify-between p-3 py-6 gap-3 lg:gap-6 border-b-2 border-amber-600 sticky top-0 z-10 ${theme === 'dark' ? 'bg-black' : 'bg-[#f1e8d5]'}`}>
       <div className={`${theme === 'dark' ? 'text-white' : 'text-amber-950'} hidden lg:flex flex-row gap-32 items-center font-bold justify-end w-full text-2xl font-mono pr-5 hover:cursor-pointer`}>
-        {sections.map((section: sectionType, key) => <div key={key} className='hover:text-amber-500 transition-all ease-in-out text-3xl'>{section.title}</div>)}
+        {sections.map((section: sectionType, key) => <Link href={`#${section.target}`} key={key} className='hover:text-amber-500 transition-all ease-in-out text-3xl'>{section.title}</Link>)}
       </div>
       <div className='flex flex-row gap-4 items-center lg:pr-5'>
         <LuSunMoon className={`${theme === 'dark' ? 'text-white' : 'text-amber-600'} text-xl  lg:text-3xl`} onClick={()=>setTheme( theme === 'dark' ? 'light' : 'dark')}/>

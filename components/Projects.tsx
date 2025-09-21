@@ -7,7 +7,7 @@ import { ThemeContext } from "../context/ThemeContext";
 const Projects = () => {
     const { theme } = useContext(ThemeContext);
     return (
-        <div className={`flex flex-col gap-4 py-10 ${theme === 'dark' ? 'bg-black' : 'bg-[#f1e8d5]'}`}>
+        <div id="projects" className={`flex flex-col gap-4 py-10 ${theme === 'dark' ? 'bg-black' : 'bg-[#f1e8d5]'}`}>
                   <h1 className={` ${theme === 'dark' ? 'text-white bg-black' : 'text-amber-950'} flex justify-center md:justify-start  font-poppins font-semibold text-4xl lg:text-6xl px-5 md:w-full`}>Projects</h1>
             <div className="flex flex-row flex-wrap justify-center items-center lg:justify-end gap-10 p-5">
                 {

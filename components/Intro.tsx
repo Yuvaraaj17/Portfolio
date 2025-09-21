@@ -7,7 +7,7 @@ export default function Intro() {
 
   const { theme } = useContext(ThemeContext);
   return (
-    <div className={`${theme === 'dark' ? 'bg-black' : 'bg-[#f1e8d5]'} flex flex-col-reverse md:flex-row justify-center items-center lg:justify-between lg:pl-16`}>
+    <div id="about" className={`${theme === 'dark' ? 'bg-black' : 'bg-[#f1e8d5]'} flex flex-col-reverse md:flex-row justify-center items-center lg:justify-between lg:pl-16`}>
       <div className='text-white font-semibold flex flex-col items-start justify-center w-full md:w-1/2 gap-5 px-5 lg:w-2/5'>
         <span className={`${theme === 'dark' ? 'text-white' : 'text-amber-800'} text-md md:text-2xl tracking-[8px]`}>HELLO!</span>
         <span className={`${theme === 'dark' ? 'text-white' : 'text-amber-950'} font-mono text-xl md:text-3xl lg:text-[42px]`}>This is YUVARAAJ here</span>
