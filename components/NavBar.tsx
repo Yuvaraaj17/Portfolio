@@ -22,7 +22,7 @@ export default function NavBar(props : {isMenuBarOpen: boolean, toggleMenuBar: (
   return (
     <div className='flex flex-row justify-between p-3 gap-3 lg:gap-6 border-b-2 border-amber-600'>
       <div className='bg-blue-400 w-10 h-10 flex items-center justify-center'>L {theme}</div>
-      <div className={`${theme === 'dark' ? 'text-white' : 'text-black'} hidden lg:flex flex-row gap-32 items-center font-bold justify-end w-full text-2xl font-mono pr-5 hover:cursor-pointer`}>
+      <div className={`${theme === 'dark' ? 'text-white' : 'text-amber-950'} hidden lg:flex flex-row gap-32 items-center font-bold justify-end w-full text-2xl font-mono pr-5 hover:cursor-pointer`}>
         {sections.map((section: sectionType, key) => <div key={key} className='hover:text-amber-500 transition-all ease-in-out text-3xl'>{section.title}</div>)}
       </div>
       <div className='flex flex-row gap-4 items-center lg:pr-5'>

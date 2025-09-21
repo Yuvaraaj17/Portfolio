@@ -37,10 +37,15 @@ module.exports = {
         "40%": { opacity: "0" },
         "100%": { opacity: "0" },
       },
+      glow: {
+        '0%, 100%': { boxShadow: '0 0 10px rgba(139,0,255,0.7), 0 0 20px rgba(139,0,255,0.5)' },
+        '50%': { boxShadow: '0 0 20px rgba(139,0,255,0.9), 0 0 30px rgba(139,0,255,0.7)' },
+      },
     },
     animation: {
       "slide-in": "slideIn 2s ease-in-out forwards",
       "fade-in-out": "fadeInOut 8s ease-in-out infinite",
+      "glow": 'glow 1.5s infinite ease-in-out',
     },
   },
   plugins: [
