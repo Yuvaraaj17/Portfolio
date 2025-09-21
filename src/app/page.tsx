@@ -6,6 +6,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import Intro from "../../components/Intro";
 import About from "../../components/About";
 import Projects from "../../components/Projects";
+import ContactForm from "../../components/ContactForm";
 
 export default function Page() {
 
@@ -24,6 +25,7 @@ export default function Page() {
         <About />
         {/* <Skills /> Not needed */}
         <Projects />
+        <ContactForm />
       </div>
     
     // <div className="bg-red-400 flex flex-col border border-black gap-28">
@@ -32,7 +34,7 @@ export default function Page() {
 
       // <Skills />
       // 
-      // <ContactForm /> */}
+      // 
       // {/* <h1 className="h-[400px] bg-black text-white">Footer content</h1> */}
     // </div>
   );

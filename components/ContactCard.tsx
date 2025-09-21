@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export const ContactCard = () => {
   return (
-    <div className="flex w-1/2 items-center justify-center">
+    <div className="lg:flex w-1/2 items-center justify-center hidden">
       <div className="grid grid-cols-3 gap-4 items-center justify-items-center">
           <Image alt="photo" src="/photo.jpg" width={224} height={224} className="col-span-3 rounded-lg shadow-lg" />
         <a
