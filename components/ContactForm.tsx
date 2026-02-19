@@ -1,115 +1,160 @@
 "use client";
-import React, { useContext, useState } from "react";
-import { ContactCard } from "./ContactCard";
-import { supabase } from "../utils/client";
-import { ThemeContext } from "../context/ThemeContext";
 
-interface formSubmissionData {
+import React, { useState } from "react";
+import { toast } from "sonner";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Send, RotateCcw } from "lucide-react";
+import { ContactCard } from "./ContactCard";
+
+interface FormData {
   emailId: string;
-  name: string | null;
+  name: string;
   message: string;
 }
 
-const ContactForm = () => {
-  const { theme } = useContext(ThemeContext);
-  const [formData, setFormData] = useState<formSubmissionData>({
+export default function ContactForm() {
+  const [formData, setFormData] = useState<FormData>({
     emailId: "",
     name: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  supabase.from("contact").insert([formData]);
-
-  const handleOnchange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  const handleOnChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleOnSubmit = async () => {
-    if (formData.emailId === "" || formData.message === "") {
-      alert("Please fill the required fields and Try again !!!");
-    } else {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.emailId || !formData.message) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
       const response = await fetch("/api/contactSubmission", {
         method: "POST",
         body: JSON.stringify(formData),
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
       });
+
       if (response.ok) {
-        alert("Your response has been recieved!!!")
+        toast.success("Message sent successfully! I'll get back to you soon.");
         handleClear();
+      } else {
+        toast.error("Something went wrong. Please try again.");
       }
+    } catch {
+      toast.error("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const handleClear = () => {
-    setFormData({
-      emailId: "",
-      name: "",
-      message: "",
-    });
+    setFormData({ emailId: "", name: "", message: "" });
   };
 
   return (
-    <div id="contact" className={`flex flex-row w-full h-max px-4 ${theme === 'dark' ? 'bg-zinc-950' : 'bg-[#e0d1c3]'} py-10`}>
-      <div className=" lg:w-1/2 w-full h-fit items-center justify-center flex">
-        <form className="flex w-full items-center justify-center flex-col gap-10">
-          <h1 className={` ${theme === 'dark' ? 'text-white' : 'text-amber-950'} flex justify-center  font-poppins font-semibold text-3xl lg:text-5xl w-full max-w-[800px]`}>Contact ME.</h1>
-          <input
-            name="emailId"
-            type="email"
-            className={`hover:cursor-pointer  font-ubuntu_mono  bg-inherit ring-[1.5px] rounded-[3px] text-lg  focus:outline-none  p-2  w-full max-w-[800px] placeholder:font-mono placeholder:font-extralight ${theme === 'dark' ? 'text-white focus:ring-pink-400 ring-white caret-pink-400 placeholder-slate-600' : 'text-amber-800 focus:ring-amber-950 ring-amber-800 caret-amber-800 placeholder-amber-800'}`}
-            placeholder="Email *"
-            required
-            onChange={(e) => handleOnchange(e)}
-            value={formData.emailId}
-            autoComplete="off"
-          />
-          <input
-            name="name"
-            type="text"
-            className={`hover:cursor-pointer font-ubuntu_mono bg-inherit ring-[1.5px] rounded-[3px] text-lg focus:outline-none p-2 w-full max-w-[800px] placeholder:font-mono placeholder:font-extralight ${theme === 'dark' ? 'text-white focus:ring-pink-400 ring-white caret-pink-400 placeholder-slate-600' : 'text-amber-800 focus:ring-amber-950 ring-amber-800 caret-amber-800 placeholder-amber-800'}`}
-            placeholder="Name (Optional)"
-            onChange={handleOnchange}
-            value={formData.name}
-            autoComplete="off"
-          />
-          <textarea
-            name="message"
-            rows={5}
-            className={`hover:cursor-pointer font-ubuntu_mono bg-inherit ring-[1.5px] rounded-[3px] text-lg focus:outline-none p-2 w-full max-w-[800px] placeholder:font-mono placeholder:font-extralight resize-none ${theme === 'dark' ? 'text-white focus:ring-pink-400 ring-white caret-pink-400 placeholder-slate-600' : 'text-amber-800 focus:ring-amber-950 ring-amber-800 caret-amber-800 placeholder-amber-800'}`}
-            placeholder="Your Message goes here ... *"
-            required
-            onChange={handleOnchange}
-            value={formData.message}
-            autoComplete="off"
-          ></textarea>
-          <div className="w-full max-w-[800px] flex justify-end">
-            <div className="flex flex-row self-end gap-4">
-              <input
-                type="submit"
-                className={`font-mono hover:cursor-pointer bg-inherit text-xl rounded-sm px-4 py-2 shadow-lg w-fit border tracking-wider ${theme === 'dark' ? 'text-pink-500 border-pink-500' : 'text-amber-950 border-amber-950'}`}
-                value="Clear"
-                onClick={handleClear}
-              />
-              <input
-                type="button"
-                className={`font-mono hover:cursor-pointer rounded-sm px-3 py-2 text-xl  shadow-lg w-fit tracking tracking-wider ${theme === 'dark' ? 'text-white bg-pink-500' : 'text-[#e0d1c3] bg-amber-950'}`}
-                value="Submit"
-                onClick={handleOnSubmit}
-              />
-            </div>
+    <section id="contact" className="py-16 md:py-24">
+      <div className="container mx-auto px-4 md:px-6">
+        {/* Section Header */}
+        <div className="mb-12">
+          <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl text-foreground">
+            Get In Touch
+          </h2>
+          <div className="mt-2 h-1 w-16 bg-primary rounded-full" />
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* Form */}
+          <div className="w-full lg:w-1/2">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              <div>
+                <label
+                  htmlFor="emailId"
+                  className="text-sm font-medium text-foreground mb-1.5 block font-poppins"
+                >
+                  Email *
+                </label>
+                <Input
+                  id="emailId"
+                  name="emailId"
+                  type="email"
+                  placeholder="your@email.com"
+                  value={formData.emailId}
+                  onChange={handleOnChange}
+                  required
+                  className="font-mono"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="name"
+                  className="text-sm font-medium text-foreground mb-1.5 block font-poppins"
+                >
+                  Name{" "}
+                  <span className="text-muted-foreground">(optional)</span>
+                </label>
+                <Input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={handleOnChange}
+                  className="font-mono"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="text-sm font-medium text-foreground mb-1.5 block font-poppins"
+                >
+                  Message *
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  placeholder="Your message goes here..."
+                  value={formData.message}
+                  onChange={handleOnChange}
+                  required
+                  className="font-mono resize-none"
+                />
+              </div>
+
+              <div className="flex gap-3 justify-end">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleClear}
+                >
+                  <RotateCcw className="mr-2 h-4 w-4" />
+                  Clear
+                </Button>
+                <Button type="submit" disabled={isSubmitting}>
+                  <Send className="mr-2 h-4 w-4" />
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </div>
+            </form>
           </div>
 
-        </form>
+          {/* Contact Card */}
+          <ContactCard />
+        </div>
       </div>
-      <ContactCard />
-    </div>
+    </section>
   );
-};
-
-export default ContactForm;
+}

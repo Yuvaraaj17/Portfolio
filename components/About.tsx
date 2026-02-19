@@ -1,96 +1,134 @@
 "use client";
-import React, { useContext, useState } from "react";
+
+import React, { useState } from "react";
 import Image from "next/image";
-import { ThemeContext } from "../context/ThemeContext";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { GraduationCap, School, Palette, Scissors, Video } from "lucide-react";
 
-const About = () => {
-  const [activeButton, setActiveButton] = useState<string>("Education");
-  const { theme } = useContext(ThemeContext)
-
-  const handleActiveButton = (event) => {
-    const { name } = event.target;
-    setActiveButton(name);
-  };
+export default function About() {
+  const [activeTab, setActiveTab] = useState<"Education" | "Hobbies">(
+    "Education"
+  );
 
   return (
-    <div className={` ${theme === 'dark' ? 'bg-zinc-950' : 'bg-[#e0d1c3]'} flex flex-col items-center justify-center gap-7 py-7`}>
-      <h1 className={` ${theme === 'dark' ? 'text-white' : 'text-amber-950'} flex justify-center md:justify-start  font-poppins font-semibold text-4xl lg:text-6xl px-5 md:w-full`}>About Me</h1>
-      <div className="flex  flex-col md:flex-row gap-5 md:w-full">
-        <div className="flex md:w-1/2 justify-center items-center">
-
-          <div className="w-56 h-56 lg:w-64 lg:h-64 "><Image src="/photo.jpg" alt="profile" width={500} height={500} className="w-full h-full rounded-lg"/></div>
+    <section className="py-16 md:py-24" id="about-section">
+      <div className="container mx-auto px-4 md:px-6">
+        {/* Section Header */}
+        <div className="mb-12">
+          <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl text-foreground">
+            About Me
+          </h2>
+          <div className="mt-2 h-1 w-16 bg-primary rounded-full" />
         </div>
-        <div className="flex flex-col font-poppins lg:text-xl lg:gap-10 gap-5 lg:w-1/2">
-          <div className="flex flex-row lg:justify-start justify-center gap-7">
-            <button
-              name="Education"
-              onClick={(e) => handleActiveButton(e)}
-              className={`px-5 py-2 rounded-[3px] transtion-all duration-300 ease-in ${activeButton === "Education" ? "bg-pink-800" : "bg-zinc-700"
-                }`}
-            >
-              Education
-            </button>
-            <button
-              name="Hobbies"
-              onClick={(e) => handleActiveButton(e)}
-              className={`px-5 py-2 rounded-[3px] transtion-all duration-300 ease-in ${activeButton === "Hobbies" ? "bg-pink-800" : "bg-zinc-700"
-                }`}
-            >
-              Hobbies
-            </button>
+
+        <div className="flex flex-col md:flex-row gap-10 items-start">
+          {/* Photo */}
+          <div className="w-full md:w-2/5 flex justify-center">
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-br from-primary/30 to-primary/0 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <Image
+                src="/photo.jpg"
+                alt="Yuvaraaj S"
+                width={320}
+                height={320}
+                className="relative rounded-2xl object-cover shadow-[0_8px_30px_rgba(var(--primary-rgb,180,80,30),0.25)] w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72"
+              />
+            </div>
           </div>
-          <div className={` ${theme === 'dark' ? 'text-white' : 'text-amber-900'} flex flex-col h-[400px] w-full`}>
-            {activeButton === "Education" && (
-              <div className="flex flex-col gap-6 md:gap-4 lg:flex-row w-full lg:items-end">
-                <div className="flex flex-col items-center justify-center w-full  gap-4">
-                  <Image
-                    src="/icons/school.png"
-                    alt="School image"
-                    width={80}
-                    height={80}
-                    className="lg:w-32"
-                  />
-                  <p className="flex flex-col justify-center items-center">
-                    Schooling Period
-                    <span className="font-bold">
+
+          {/* Content */}
+          <div className="w-full md:w-3/5 flex flex-col gap-6">
+            {/* Tabs */}
+            <div className="flex gap-2">
+              {(["Education", "Hobbies"] as const).map((tab) => (
+                <Button
+                  key={tab}
+                  variant={activeTab === tab ? "default" : "secondary"}
+                  onClick={() => setActiveTab(tab)}
+                  className="font-poppins transition-all duration-300"
+                >
+                  {tab}
+                </Button>
+              ))}
+            </div>
+
+            {/* Education */}
+            {activeTab === "Education" && (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 animate-fade-in-up">
+                <Card className="border-border/50 hover:border-primary/30 transition-colors duration-300">
+                  <CardHeader className="flex flex-row items-center gap-4 pb-2">
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <School className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-lg font-poppins">
+                      Schooling
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="font-semibold text-foreground">
                       Sainik School Amaravathinagar
-                    </span>
-                    <span>{"( 2013 - 2020 )"} </span>
-                  </p>
-                </div>
-                <div className="flex flex-col items-center justify-center w-full  gap-4">
-                  <Image
-                    src="/icons/graduation.png"
-                    alt="School image"
-                    width={90}
-                    height={90}
-                    className="lg:w-36"
-                  />
+                    </p>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      2013 – 2020
+                    </p>
+                  </CardContent>
+                </Card>
 
-                  <p className="flex flex-col justify-center items-center">
-                    B.E - Computer Science Engineeing
-                    <span className="font-bold">
-                      Anna University - Coimbatore
-                    </span>
-                    <span>{"( 2020 - 2024 )"} </span>
-                  </p>
-
-                </div>
+                <Card className="border-border/50 hover:border-primary/30 transition-colors duration-300">
+                  <CardHeader className="flex flex-row items-center gap-4 pb-2">
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <GraduationCap className="h-8 w-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-lg font-poppins">
+                      Graduation
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      B.E — Computer Science Engineering
+                    </p>
+                    <p className="font-semibold text-foreground">
+                      Anna University — Coimbatore
+                    </p>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      2020 – 2024
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
             )}
-            {activeButton === "Hobbies" && (
-              <div className="flex flex-col justify-center items-center gap-8 text-3xl h-full font-poppins">
-                <div>Video Editing</div>
-                <div>Logo Designing</div>
-                <div>Origami</div>
+
+            {/* Hobbies */}
+            {activeTab === "Hobbies" && (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 animate-fade-in-up">
+                {[
+                  { icon: Video, label: "Video Editing" },
+                  { icon: Palette, label: "Logo Designing" },
+                  { icon: Scissors, label: "Origami" },
+                ].map(({ icon: Icon, label }) => (
+                  <Card
+                    key={label}
+                    className="border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-md group"
+                  >
+                    <CardContent className="flex flex-col items-center justify-center gap-3 py-8">
+                      <Icon className="h-8 w-8 text-primary group-hover:scale-110 transition-transform duration-300" />
+                      <span className="font-poppins font-medium text-foreground">
+                        {label}
+                      </span>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
             )}
-
           </div>
         </div>
       </div>
-    </div>
-  )
+    </section>
+  );
 }
-
-export default About;

@@ -1,17 +1,22 @@
 [
-        {
-            "name": "About",
-            "title": "About",
-            "target": "about"
-        },
-        {
-            "name": "Projects",
-            "title": "Projects",
-            "target": "projects"
-        },
-        {
-            "name": "Contact",
-            "title": "Contact",
-            "target": "contact"
-        }
+  {
+    "name": "About",
+    "title": "About",
+    "target": "about"
+  },
+  {
+    "name": "Skills",
+    "title": "Skills",
+    "target": "skills"
+  },
+  {
+    "name": "Projects",
+    "title": "Projects",
+    "target": "projects"
+  },
+  {
+    "name": "Contact",
+    "title": "Contact",
+    "target": "contact"
+  }
 ]

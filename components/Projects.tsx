@@ -1,21 +1,35 @@
-'use client'
-import React, { useContext } from "react"
-import { ProjectCard } from "./ProjectCard"
+"use client";
+
+import React from "react";
+import { ProjectCard } from "./ProjectCard";
 import projects from "../src/assets/data/projects.json";
-import { ThemeContext } from "../context/ThemeContext";
 
-const Projects = () => {
-    const { theme } = useContext(ThemeContext);
-    return (
-        <div id="projects" className={`flex flex-col gap-4 py-10 ${theme === 'dark' ? 'bg-black' : 'bg-[#f1e8d5]'}`}>
-                  <h1 className={` ${theme === 'dark' ? 'text-white bg-black' : 'text-amber-950'} flex justify-center md:justify-start  font-poppins font-semibold text-4xl lg:text-6xl px-5 md:w-full`}>Projects</h1>
-            <div className="flex flex-row flex-wrap justify-center items-center lg:justify-end gap-10 p-5">
-                {
-                    projects.map((project, key) => (<ProjectCard imgPath={project.imgPath} title={project.title} key={key} />))
-                }
-            </div>
+export default function Projects() {
+  return (
+    <section id="projects" className="py-16 md:py-24">
+      <div className="container mx-auto px-4 md:px-6">
+        {/* Section Header */}
+        <div className="mb-12">
+          <h2 className="font-poppins font-bold text-3xl md:text-4xl lg:text-5xl text-foreground">
+            Projects
+          </h2>
+          <div className="mt-2 h-1 w-16 bg-primary rounded-full" />
         </div>
-    )
-}
 
-export default Projects;
+        {/* Project Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, idx) => (
+            <ProjectCard
+              key={idx}
+              title={project.title}
+              description={project.description}
+              imgPath={project.imgPath}
+              link={project.link}
+              tags={project.tags}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

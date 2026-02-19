@@ -1,22 +1,16 @@
 [
-    {
-        "title": "AI Enhanced Placement module",
-        "imgPath": "/projects/placement.jpg",
-        "link": "https://github.com/Yuvaraaj17/placement"
-    },
-    {
-        "title": "AI Enhanced Placement module",
-        "imgPath": "/projects/placement.jpg",
-        "link": "https://github.com/Yuvaraaj17/placement"
-    },
-    {
-        "title": "AI Enhanced Placement module",
-        "imgPath": "/projects/placement.jpg",
-        "link": "https://github.com/Yuvaraaj17/placement"
-    },
-    {
-        "title": "AI Enhanced Placement module",
-        "imgPath": "/projects/placement.jpg",
-        "link": "https://github.com/Yuvaraaj17/placement"
-    }
+  {
+    "title": "AI Enhanced Placement Module",
+    "description": "An AI-powered placement management system that streamlines the campus recruitment process with intelligent matching and analytics.",
+    "imgPath": "/projects/placement.jpg",
+    "link": "https://github.com/Yuvaraaj17/placement",
+    "tags": ["AI/ML", "Next.js", "Full Stack"]
+  },
+  {
+    "title": "Smart Door Alert System",
+    "description": "An IoT-based door monitoring system with real-time alerts and notifications for enhanced home security.",
+    "imgPath": "/projects/door-alert.jpg",
+    "link": "https://github.com/Yuvaraaj17",
+    "tags": ["IoT", "Embedded", "Real-time"]
+  }
 ]
