@@ -12,6 +12,7 @@ interface FormData {
   emailId: string;
   name: string;
   message: string;
+  website: string; // honeypot — invisible to users, bots fill it
 }
 
 export default function ContactForm() {
@@ -19,6 +20,7 @@ export default function ContactForm() {
     emailId: "",
     name: "",
     message: "",
+    website: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -59,7 +61,7 @@ export default function ContactForm() {
   };
 
   const handleClear = () => {
-    setFormData({ emailId: "", name: "", message: "" });
+    setFormData({ emailId: "", name: "", message: "", website: "" });
   };
 
   return (
@@ -77,6 +79,19 @@ export default function ContactForm() {
           {/* Form */}
           <div className="w-full lg:w-1/2">
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              {/* Honeypot — hidden from users, bots fill it */}
+              <div className="sr-only" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleOnChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
               <div>
                 <label
                   htmlFor="emailId"
