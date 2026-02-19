@@ -1,28 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import { getSocials } from "@/lib/socials";
 
 export function ContactCard() {
-  const socials = [
-    {
-      icon: <FaLinkedin className="h-5 w-5" />,
-      href: "https://www.linkedin.com/in/yuvaraaj-s-30642b21b/",
-      label: "LinkedIn",
-    },
-    {
-      icon: <FaGithub className="h-5 w-5" />,
-      href: "https://github.com/Yuvaraaj17",
-      label: "GitHub",
-    },
-    {
-      icon: <SiGmail className="h-5 w-5" />,
-      href: "mailto:yuvaraaj5910@gmail.com",
-      label: "Email",
-    },
-  ];
+  const socials = getSocials("h-5 w-5");
 
   return (
     <div className="w-full lg:w-1/2 flex flex-col items-center justify-center gap-6">

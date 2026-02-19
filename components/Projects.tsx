@@ -4,6 +4,11 @@ import React from "react";
 import { ProjectCard } from "./ProjectCard";
 import projects from "../src/assets/data/projects.json";
 
+const envLinks: Record<string, string | undefined> = {
+  NEXT_PUBLIC_PROJECT_PLACEMENT_LINK: process.env.NEXT_PUBLIC_PROJECT_PLACEMENT_LINK,
+  NEXT_PUBLIC_PROJECT_DOORALERT_LINK: process.env.NEXT_PUBLIC_PROJECT_DOORALERT_LINK,
+};
+
 export default function Projects() {
   return (
     <section id="projects" className="py-16 md:py-24">
@@ -24,7 +29,7 @@ export default function Projects() {
               title={project.title}
               description={project.description}
               imgPath={project.imgPath}
-              link={project.link}
+              link={envLinks[project.envKey] || "#"}
               tags={project.tags}
             />
           ))}

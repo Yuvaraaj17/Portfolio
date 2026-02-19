@@ -1,27 +1,9 @@
 import React from "react";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
+import { getSocials } from "@/lib/socials";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const socials = [
-    {
-      icon: <FaLinkedin className="h-4 w-4" />,
-      href: "https://www.linkedin.com/in/yuvaraaj-s-30642b21b/",
-      label: "LinkedIn",
-    },
-    {
-      icon: <FaGithub className="h-4 w-4" />,
-      href: "https://github.com/Yuvaraaj17",
-      label: "GitHub",
-    },
-    {
-      icon: <SiGmail className="h-4 w-4" />,
-      href: "mailto:yuvaraaj5910@gmail.com",
-      label: "Email",
-    },
-  ];
+  const socials = getSocials("h-4 w-4");
 
   return (
     <footer className="mt-auto">

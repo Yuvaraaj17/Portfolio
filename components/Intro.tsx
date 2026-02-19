@@ -1,20 +1,13 @@
 "use client";
 
-import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
-import { useTheme } from "next-themes";
+import React, { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download } from "lucide-react";
+import DeveloperIllustration from "./DeveloperIllustration";
 
 export default function Intro() {
-  const { resolvedTheme } = useTheme();
   const typedRef = useRef<HTMLSpanElement>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (typedRef.current) {
@@ -36,7 +29,7 @@ export default function Intro() {
   return (
     <section
       id="about"
-      className="relative min-h-[calc(100vh-4rem)] flex items-center"
+      className="relative min-h-[calc(100vh-4rem)] flex items-center overflow-hidden"
     >
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-20">
         <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
@@ -86,22 +79,11 @@ export default function Intro() {
             </div>
           </div>
 
-          {/* Profile Image */}
+          {/* Animated Developer Illustration */}
           <div className="w-full md:w-1/2 flex justify-center items-center">
-            <div className="relative animate-float">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-primary/5 rounded-full blur-2xl" />
-              <Image
-                src={
-                  mounted && resolvedTheme === "light"
-                    ? "/light-profile.png"
-                    : "/dark-profile.png"
-                }
-                width={500}
-                height={500}
-                alt="Yuvaraaj S — Software Developer"
-                priority
-                className="relative z-10"
-              />
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem]">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 rounded-full blur-3xl" />
+              <DeveloperIllustration className="relative z-10 w-full h-full drop-shadow-md" />
             </div>
           </div>
         </div>
@@ -109,3 +91,4 @@ export default function Intro() {
     </section>
   );
 }
+
