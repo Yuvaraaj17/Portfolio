@@ -1,16 +1,23 @@
 [
   {
-    "title": "AI Enhanced Placement Module",
-    "description": "An AI-powered placement management system that streamlines the campus recruitment process with intelligent matching and analytics.",
-    "imgPath": "/projects/placement.jpg",
-    "envKey": "NEXT_PUBLIC_PROJECT_PLACEMENT_LINK",
+    "title": "PlacementPal",
+    "description": "An AI-powered placement management system that streamlines campus recruitment with intelligent matching and analytics.",
+    "previewComponent": "PlacementPalPreview",
+    "envKey": "NEXT_PUBLIC_PROJECT_PLACEMENTPAL_LINK",
     "tags": ["AI/ML", "Next.js", "Full Stack"]
   },
   {
-    "title": "Smart Door Alert System",
-    "description": "An IoT-based door monitoring system with real-time alerts and notifications for enhanced home security.",
-    "imgPath": "/projects/door-alert.jpg",
-    "envKey": "NEXT_PUBLIC_PROJECT_DOORALERT_LINK",
-    "tags": ["IoT", "Embedded", "Real-time"]
+    "title": "DockKit",
+    "description": "A visual Docker image builder — pick your base OS, dev tools, and kits to generate production-ready Dockerfiles without writing a single line.",
+    "previewComponent": "DockKitPreview",
+    "envKey": "NEXT_PUBLIC_PROJECT_DOCKKIT_LINK",
+    "tags": ["Docker", "React", "DevTools"]
+  },
+  {
+    "title": "UrbanEye",
+    "description": "Fleet monitoring dashboard powered by YOLO-based road sign recognition for real-time violation detection, GPS tracking, and compliance analytics.",
+    "previewComponent": "UrbanEyePreview",
+    "envKey": "NEXT_PUBLIC_PROJECT_URBANEYE_LINK",
+    "tags": ["YOLO", "Next.js", "Real-time"]
   }
 ]

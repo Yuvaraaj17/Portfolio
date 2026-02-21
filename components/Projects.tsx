@@ -3,10 +3,20 @@
 import React from "react";
 import { ProjectCard } from "./ProjectCard";
 import projects from "../src/assets/data/projects.json";
+import PlacementPalPreview from "./project-previews/PlacementPalPreview";
+import DockKitPreview from "./project-previews/DockKitPreview";
+import UrbanEyePreview from "./project-previews/UrbanEyePreview";
+
+const previewComponents: Record<string, React.ComponentType> = {
+  PlacementPalPreview,
+  DockKitPreview,
+  UrbanEyePreview,
+};
 
 const envLinks: Record<string, string | undefined> = {
-  NEXT_PUBLIC_PROJECT_PLACEMENT_LINK: process.env.NEXT_PUBLIC_PROJECT_PLACEMENT_LINK,
-  NEXT_PUBLIC_PROJECT_DOORALERT_LINK: process.env.NEXT_PUBLIC_PROJECT_DOORALERT_LINK,
+  NEXT_PUBLIC_PROJECT_PLACEMENTPAL_LINK: process.env.NEXT_PUBLIC_PROJECT_PLACEMENTPAL_LINK,
+  NEXT_PUBLIC_PROJECT_DOCKKIT_LINK: process.env.NEXT_PUBLIC_PROJECT_DOCKKIT_LINK,
+  NEXT_PUBLIC_PROJECT_URBANEYE_LINK: process.env.NEXT_PUBLIC_PROJECT_URBANEYE_LINK,
 };
 
 export default function Projects() {
@@ -23,16 +33,20 @@ export default function Projects() {
 
         {/* Project Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, idx) => (
-            <ProjectCard
-              key={idx}
-              title={project.title}
-              description={project.description}
-              imgPath={project.imgPath}
-              link={envLinks[project.envKey] || "#"}
-              tags={project.tags}
-            />
-          ))}
+          {projects.map((project, idx) => {
+            const PreviewComponent =
+              previewComponents[project.previewComponent];
+            return (
+              <ProjectCard
+                key={idx}
+                title={project.title}
+                description={project.description}
+                previewComponent={PreviewComponent}
+                link={envLinks[project.envKey] || "#"}
+                tags={project.tags}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

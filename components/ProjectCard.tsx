@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import {
   Card,
@@ -13,7 +12,7 @@ import { Button } from "@/components/ui/button";
 interface ProjectCardProps {
   title: string;
   description?: string;
-  imgPath: string;
+  previewComponent?: React.ComponentType;
   link?: string;
   tags?: string[];
 }
@@ -21,21 +20,20 @@ interface ProjectCardProps {
 export function ProjectCard({
   title,
   description,
-  imgPath,
+  previewComponent: PreviewComponent,
   link,
   tags,
 }: ProjectCardProps) {
   return (
     <Card className="group overflow-hidden border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-lg hover:-translate-y-1">
-      {/* Image */}
+      {/* Preview */}
       <CardHeader className="p-0">
-        <div className="relative h-48 overflow-hidden">
-          <Image
-            src={imgPath}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+        <div className="relative h-48 overflow-hidden bg-muted/30">
+          {PreviewComponent && (
+            <div className="w-full h-full transition-transform duration-500 group-hover:scale-105">
+              <PreviewComponent />
+            </div>
+          )}
           {/* Overlay on hover */}
           <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-4">
             {link && (
